@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "875269783912",
+    "project_id": "interface-4210e",
+    "storage_bucket": "interface-4210e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875269783912:android:6e7e0e853a935f8ed556dd",
+        "android_client_info": {
+          "package_name": "com.example.interaface"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHsp5RiIJSr45kdg3T75vsShthpSrJ7MU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

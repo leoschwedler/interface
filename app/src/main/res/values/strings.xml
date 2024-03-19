@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Interface</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="option1">Option 1</string>
+    <string name="option2">Option 2</string>
+    <string name="option3">Option 3</string>
+    <string name="option4">Option 4</string>
+    <string name="email">Email</string>
+
+</resources>
