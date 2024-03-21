@@ -4,8 +4,10 @@ package com.example.interaface.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.interaface.api.ApiTokenDAO
 import com.example.interaface.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -15,10 +17,14 @@ class LoginActivity : AppCompatActivity() {
 
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private lateinit var apiTokenDAO: ApiTokenDAO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        apiTokenDAO = ApiTokenDAO(applicationContext)
+
 
         binding.btnLogin.setOnClickListener {
             val username = binding.txtEmail.text.toString()
@@ -38,7 +44,14 @@ class LoginActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             try {
 
-                val loginData = ApiClient.apiService.loginUser(username, password)
+                val loginResponse = ApiClient.apiService.loginUser(username, password)
+
+                // Supondo que loginResponse inclua um campo 'token'
+                val token = loginResponse.body()?.token ?: throw Exception("Token not found")
+
+                // Salva o token usando ApiTokenDown
+                apiTokenDAO.saveToken(token)
+                Log.i("LoginActivity", "Token SALVO: $token")
                 exibirMensagem("Login successfully!")
                 val intent = Intent(this@LoginActivity, DynamicButtonsActivity::class.java)
                 startActivity(intent)
