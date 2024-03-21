@@ -6,11 +6,9 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
-interface ApiService {
-    @FormUrlEncoded
-    @POST("login")
-    suspend fun loginUser(
-        @Field("u") userName: String,
-        @Field("p") password: String
-    ): Response<LoginData>
+import retrofit2.http.Query
+
+interface secondRequestService {
+    @GET("waterPermissions")
+    suspend fun fetchWaterPermissions(@Header("Token") token: String?): Response<Any>
 }

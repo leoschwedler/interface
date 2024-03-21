@@ -22,6 +22,4 @@ class ApiTokenDAO constructor(
     }
 
     fun getToken(): String? = cache ?: sharedPreferences.getString("Token", "").also { cache = it }
-    // Retorna o token do cache, ou do sharedPreferences se o cache for nulo,
-    // e atualiza o cache com o valor. Usa "" como valor padrão.
 }

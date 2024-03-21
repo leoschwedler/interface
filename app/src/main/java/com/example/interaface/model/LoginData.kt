@@ -11,8 +11,4 @@ data class LoginData(
     @SerializedName("startTimePause") val startTimePause: String,
     @SerializedName("endTimePause") val endTimePause: String,
     @SerializedName("userid") val userId: String
-
-) {
-    @SerializedName("operations")
-    val operations: List<String> = listOf("On", "Off", "rename_ip")
-}
+)
